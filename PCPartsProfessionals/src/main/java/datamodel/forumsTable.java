@@ -8,31 +8,31 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "forumnsTable")
-public class Forum {
-	
+@Table(name = "forumsTable")
+public class forumsTable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	
+
 	@Column(name = "MYUSER")
 	private String username;
-	
+
 	@Column(name = "TITLE")
 	private String title;
-	
+
 	@Column(name = "TEXT")
 	private String text;
-	
+
 	@Column(name = "DATE")
 	private String date;
-	
-	public Forum() {
-		
+
+	public forumsTable() {
+
 	}
-	
-	public Forum(Integer id, String username, String title, String text, String date) {
+
+	public forumsTable(Integer id, String username, String title, String text, String date) {
 		this.id = id;
 		this.username = username;
 		this.title = title;
@@ -40,7 +40,7 @@ public class Forum {
 		this.date = date;
 	}
 
-	public Forum(String username, String title, String text, String date) {
+	public forumsTable(String username, String title, String text, String date) {
 		this.username = username;
 		this.title = title;
 		this.text = text;
@@ -89,7 +89,7 @@ public class Forum {
 
 	@Override
 	public String toString() {
-		return "Forum [id=" + id + ", username=" + username + ", title=" + title + ", text=" + text + ", date=" + date
+		return "forumsTable [id=" + id + ", username=" + username + ", title=" + title + ", text=" + text + ", date=" + date
 				+ "]";
 	}
 }

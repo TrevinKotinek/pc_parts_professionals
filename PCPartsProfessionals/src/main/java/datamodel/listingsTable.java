@@ -8,52 +8,52 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "forumnsTable")
-public class Listing {
-	
+@Table(name = "listingsTable")
+public class listingsTable {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	
+
 	@Column(name = "TYPE")
 	private String type;
-	
+
 	@Column(name = "BRAND")
 	private String brand;
-	
+
 	@Column(name = "MODEL")
 	private String model;
-	
+
 	@Column(name = "COND")
 	private String condition;
-	
+
 	@Column(name = "PRICE")
 	private String price;
-	
+
 	@Column(name = "DATE")
 	private String date;
-	
+
 	@Column(name = "USER")
 	private String user;
-	
+
 	@Column(name = "EMAIL")
 	private String email;
-	
+
 	@Column(name = "PHONE")
 	private String phone;
-	
+
 	@Column(name = "CITY")
 	private String city;
-	
+
 	@Column(name = "STATE")
 	private String state;
 
-	public Listing() {
-		
+	public listingsTable() {
+
 	}
-	
-	public Listing(Integer id, String type, String brand, String model, String condition, String price, String date,
+
+	public listingsTable(Integer id, String type, String brand, String model, String condition, String price, String date,
 			String user, String email, String phone, String city, String state) {
 		this.id = id;
 		this.type = type;
@@ -69,7 +69,7 @@ public class Listing {
 		this.state = state;
 	}
 
-	public Listing(String type, String brand, String model, String condition, String price, String date, String user,
+	public listingsTable(String type, String brand, String model, String condition, String price, String date, String user,
 			String email, String phone, String city, String state) {
 		this.type = type;
 		this.brand = brand;
