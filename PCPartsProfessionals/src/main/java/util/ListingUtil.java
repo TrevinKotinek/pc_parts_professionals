@@ -50,4 +50,66 @@ public class ListingUtil {
 		}
 		return resultList;
 	}
+
+	public static void createlistingsTable(String type, String brand, String model, String condition, String price, String date, String user,
+			String email, String phone, String city, String state) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			session.save(new listingsTable(type, brand, model, condition, price, date, user, email, phone, city, state));
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+
+	public static boolean deletelistingsTable(int id) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+		listingsTable user = ListingUtil.get(id);
+		if (user != null) {
+			try {
+				tx = session.beginTransaction();
+				session.delete(user);
+				tx.commit();
+			} catch (HibernateException e) {
+				if (tx != null)
+					tx.rollback();
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public static listingsTable get(int id) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			List<?> restaurants = session.createQuery("FROM listingsTable").list();
+			for (Iterator<?> iterator = restaurants.iterator(); iterator.hasNext();) {
+				listingsTable user = (listingsTable) iterator.next();
+				if (user.getId() == id) {
+					return user;
+				}
+			}
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return null;
+	}
 }

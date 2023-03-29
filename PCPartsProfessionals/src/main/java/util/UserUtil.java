@@ -50,4 +50,65 @@ public class UserUtil {
 		}
 		return resultList;
 	}
+
+	public static void createUsersTable(String username, String password, String email, String phone) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			session.save(new usersTable(username, password, email, phone));
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+
+	public static boolean deleteUsersTable(int id) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+		usersTable user = UserUtil.get(id);
+		if (user != null) {
+			try {
+				tx = session.beginTransaction();
+				session.delete(user);
+				tx.commit();
+			} catch (HibernateException e) {
+				if (tx != null)
+					tx.rollback();
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public static usersTable get(int id) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			List<?> restaurants = session.createQuery("FROM usersTable").list();
+			for (Iterator<?> iterator = restaurants.iterator(); iterator.hasNext();) {
+				usersTable user = (usersTable) iterator.next();
+				if (user.getId() == id) {
+					return user;
+				}
+			}
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return null;
+	}
 }

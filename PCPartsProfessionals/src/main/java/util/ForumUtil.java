@@ -51,4 +51,65 @@ public class ForumUtil {
 		return resultList;
 	}
 
+
+	public static void createforumsTable(String username, String title, String text, String date) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			session.save(new forumsTable(username, title, text, date));
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+	}
+
+	public static boolean deleteforumsTable(int id) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+		forumsTable user = ForumUtil.get(id);
+		if (user != null) {
+			try {
+				tx = session.beginTransaction();
+				session.delete(user);
+				tx.commit();
+			} catch (HibernateException e) {
+				if (tx != null)
+					tx.rollback();
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+			return true;
+		}
+		return false;
+	}
+
+	public static forumsTable get(int id) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			List<?> restaurants = session.createQuery("FROM forumsTable").list();
+			for (Iterator<?> iterator = restaurants.iterator(); iterator.hasNext();) {
+				forumsTable user = (forumsTable) iterator.next();
+				if (user.getId() == id) {
+					return user;
+				}
+			}
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return null;
+	}
 }
