@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home Page</title>
+<!-- Link CSS -->
+<link rel="stylesheet" type="text/css" href="pc_parts_Style.css"/>
+</head>
+
+<!-- Begin Body -->
+<body>
+
+<!-- Display Welcome Message -->
+<header>
+	<h1>PC Part Picker</h1>
+</header>
+
+<!-- Navigation Links -->
+<nav>
+<ul>
+<li><a href="pc_parts_Home.html">Home</a></li>
+<li><a href="pc_parts_Accounts.html">Accounts</a></li>
+<li><a href="pc_parts_Listings.html">Listings</a></li>
+<li><a href="pc_parts_Forum.html">Forum</a></li>
+</ul>
+</nav>
+
+<!-- Sign-in box -->
+<!-- Not sure if we have an action for getting the login information yet so getLogin is a placeholder name -->
+<form action="getLogin" method="post">
+  
+  <div class="container">
+    <label for="uname"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
+
+</form>
+</body>
+</html>
