@@ -35,10 +35,10 @@ public class UserUtil {
 
 		try {
 			tx = session.beginTransaction();
-			List<?> Forums = session.createQuery("FROM usersTable").list();
-			for (Iterator<?> iterator = Forums.iterator(); iterator.hasNext();) {
-				usersTable forum = (usersTable) iterator.next();
-				resultList.add(forum);
+			List<?> Users = session.createQuery("FROM usersTable").list();
+			for (Iterator<?> iterator = Users.iterator(); iterator.hasNext();) {
+				usersTable user = (usersTable) iterator.next();
+				resultList.add(user);
 			}
 			tx.commit();
 		} catch (HibernateException e) {
@@ -49,6 +49,30 @@ public class UserUtil {
 			session.close();
 		}
 		return resultList;
+	}
+	
+	public static boolean userExists(String username, String password) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+
+		try {
+			tx = session.beginTransaction();
+			List<?> Users = session.createQuery("FROM usersTable").list();
+			for (Iterator<?> iterator = Users.iterator(); iterator.hasNext();) {
+				usersTable user = (usersTable) iterator.next();
+				if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
+					return true;
+				}
+			}
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return false;
 	}
 
 	public static void createUsersTable(String username, String password, String email, String phone) {
