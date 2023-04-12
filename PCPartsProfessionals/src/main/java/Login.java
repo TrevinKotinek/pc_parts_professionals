@@ -37,7 +37,7 @@ public class Login extends HttpServlet implements Info {
 	}
 	
 	void loginSucceeded(HttpServletResponse response) throws IOException {
-		response.sendRedirect("pc_parts_Account.html");
+		response.sendRedirect("pc_parts_Accounts.html");
 	}
 	
 	void loginFailed(PrintWriter out) {
@@ -49,6 +49,6 @@ public class Login extends HttpServlet implements Info {
 				+ "<head><title>" + title + "</title></head>\n" + //
 				"<body bgcolor=\"#f0f0f0\">\n" + //
 				"<br><h1 align=\"center\" style=\"color:red\">" + title + "</h1>\n");
-		out.println("<br><br><a href=/" + projectName + "/" + homeName + "><h3 align=\"center\">Retry Login</h3></a>");		
+		out.println("<br><br><a href=/" + projectName + "/" + loginName + "><h3 align=\"center\">Retry Login</h3></a>");		
 	}
 }

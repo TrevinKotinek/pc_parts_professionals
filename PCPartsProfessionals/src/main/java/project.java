@@ -45,6 +45,7 @@ public class project extends HttpServlet {
 		out.println("<ul>");
 		List<forumsTable> listForums = ForumUtil.listForums();
 		List<listingsTable> listTable = ListingUtil.listListings();
+		UserUtil.createUsersTable("Trevin", "Kotinek", "trevin@kotinek", "111-222-3333");
 		List<usersTable> listUsers = UserUtil.listUsers();
 		for (forumsTable forum : listForums) {
 			out.println("<li>" + forum.getId() + ", " //
