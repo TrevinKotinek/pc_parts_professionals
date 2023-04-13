@@ -12,11 +12,11 @@ import java.time.format.DateTimeFormatter;
 import util.Info;
 import util.ListingUtil;
 
-@WebServlet("/CreateListing")
-public class CreateListing extends HttpServlet implements Info {
+@WebServlet("/MyCreateListing")
+public class MyCreateListing extends HttpServlet implements Info {
    private static final long serialVersionUID = 1L;
 
-   public CreateListing() {
+   public MyCreateListing() {
       super();
    }
 
@@ -29,7 +29,7 @@ public class CreateListing extends HttpServlet implements Info {
       String city = request.getParameter("city").trim();
       String type = request.getParameter("partType").trim();
       String brand = request.getParameter("brand").trim();
-      String condition = request.getParameter("price").trim();
+      String condition = request.getParameter("condition").trim();
       
       String dateString = java.time.LocalDateTime.now().toString();
       

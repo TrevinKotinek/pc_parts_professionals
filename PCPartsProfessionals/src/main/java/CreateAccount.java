@@ -11,9 +11,10 @@ import java.time.format.DateTimeFormatter;
 
 import util.Info;
 import util.ListingUtil;
+import util.UserUtil;
 
 @WebServlet("/CreateAccount")
-public class CreateListing extends HttpServlet implements Info {
+public class CreateAccount extends HttpServlet implements Info {
    private static final long serialVersionUID = 1L;
 
    public CreateAccount() {
@@ -26,7 +27,7 @@ public class CreateListing extends HttpServlet implements Info {
       String email = request.getParameter("email").trim();
       String phonenumber = request.getParameter("phonenumber").trim();
         
-      ListingUtil.createUserTable(username, password, email, phonenumber);
+      UserUtil.createUsersTable(username, password, email, phonenumber);
 
       response.setContentType("text/html");
       PrintWriter out = response.getWriter();
@@ -42,7 +43,7 @@ public class CreateListing extends HttpServlet implements Info {
       out.println("<li> Email: " + email);
       out.println("<li> Phone: " + phonenumber);
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + createAccountName + ">Create Account</a> <br>");
+      out.println("<a href=/" + projectName + "/" + accountsName + ">Create Account</a> <br>");
       out.println("</body></html>");
    }
 
