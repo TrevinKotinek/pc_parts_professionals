@@ -1,21 +1,17 @@
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.time.LocalDateTime;  
-import java.time.format.DateTimeFormatter;  
 
+import datamodel.listingsTable;
 import util.Info;
 import util.ListingUtil;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import dtamodel.listingsTable;
 
 
 @WebServlet("/SearchListings")
@@ -32,7 +28,7 @@ public class SearchListings extends HttpServlet implements Info {
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
       String param = request.getParameter("searchParam");
       String search = request.getParameter("search");
-      List<listingsTable> listings = ListingUtil.listListing();
+      List<listingsTable> listings = ListingUtil.listListings();
       Iterator<listingsTable> iterator = listings.iterator();
 
       response.setContentType("text/html");
