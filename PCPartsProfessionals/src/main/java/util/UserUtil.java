@@ -15,6 +15,7 @@ import datamodel.usersTable;
 
 public class UserUtil {
 	static SessionFactory sessionFactory = null;
+	public static usersTable currentUser;
 
 	public static SessionFactory getSessionFactory() {
 		if (sessionFactory != null) {
@@ -61,6 +62,7 @@ public class UserUtil {
 			for (Iterator<?> iterator = Users.iterator(); iterator.hasNext();) {
 				usersTable user = (usersTable) iterator.next();
 				if(user.getUsername().equals(username) && user.getPassword().equals(password)) {
+					currentUser = user;
 					return true;
 				}
 			}

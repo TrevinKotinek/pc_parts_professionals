@@ -6,11 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.time.LocalDateTime;  
-import java.time.format.DateTimeFormatter;  
-
 import util.Info;
-import util.ListingUtil;
 import util.UserUtil;
 
 @WebServlet("/CreateAccount")
