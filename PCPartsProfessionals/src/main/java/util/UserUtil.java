@@ -137,4 +137,24 @@ public class UserUtil {
 		}
 		return null;
 	}
+	public static boolean deleteRestaurant(int id) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+		usersTable userToDelete = UserUtil.get(id);
+		if (userToDelete != null) {
+			try {
+				tx = session.beginTransaction();
+				session.delete(userToDelete);
+				tx.commit();
+			} catch (HibernateException e) {
+				if (tx != null)
+					tx.rollback();
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
+			return true;
+		}
+		return false;
+	}
 }

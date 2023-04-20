@@ -25,16 +25,12 @@ public class ViewAccount extends HttpServlet implements Info {
 		usersTable user = UserUtil.currentUser;
 		PrintWriter out = response.getWriter();
 		
-		String title = "Login Failed";
-		String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; //
-		out.println(docType + //
-				"<html>\n" + //
-				"<style> table, th, td { border:1px black solid; border-collapse:collapse; margin-left:auto; margin-right:auto;} </style>"
-				+ "<head><title>" + title + "</title></head>\n" + //
-				"<body bgcolor=\"#f0f0f0\">\n" + //
-				"<br><h1 align=\"center\">" + 
-				user.getUsername() + "<br>" + user.getPassword() + "<br>" + user.getEmail()	+ "</h1>\n");
-		out.println("<br><br><a href=/" + projectName + "/" + accountsName + "><h3 align=\"center\">Back to accounts page</h3></a>");
+		String title = "Account Info";
+		String content = "<br><h1 align=\"center\">" + "<br><br>" + "Username: " + user.getUsername() 
+		+ "<br>" + "Password: " + user.getPassword() + "<br>" + "Email: " + user.getEmail() + "<br>" + "Phone Number: " + user.getPhone()	+ "</h1>\n";
+		
+		String output = Info.PrettyPrint(title, title, content);
+		out.print(output);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
