@@ -25,7 +25,7 @@ public class Login extends HttpServlet implements Info {
 		
 		PrintWriter out = response.getWriter();
 		
-		if(UserUtil.userExists(username, password)) {
+		if(UserUtil.login(username, password)) {
 			loginSucceeded(response);
 		}else {
 			loginFailed(out);

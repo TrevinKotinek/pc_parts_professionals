@@ -52,7 +52,7 @@ public class UserUtil {
 		return resultList;
 	}
 	
-	public static boolean userExists(String username, String password) {
+	public static boolean login(String username, String password) {
 		Session session = getSessionFactory().openSession();
 		Transaction tx = null;
 
