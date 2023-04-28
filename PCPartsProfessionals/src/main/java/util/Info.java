@@ -22,11 +22,10 @@ public interface Info {
 			   + "<!-- Display Welcome Message -->"
 			   + "<!-- Navigation Links -->\r\n"
 			   + "<div class=\"topnav\">\r\n"
-			   + "<a href=\"pc_parts_Login.html\">Home</a>\r\n"
+			   + "<a href=\"pc_parts_Login.html\">Log Out</a>\r\n"
 			   + "<a href=\"pc_parts_Accounts.html\">Accounts</a>\r\n"
 			   + "<a href=\"pc_parts_Listings.html\">Listings</a>\r\n"
 			   + "<a href=\"pc_parts_Forum.html\">Forum</a>\r\n"
-			   + "<a href=\"pc_parts_CreateAccount.html\" class=\"split\">Create Account</a>\r\n"
 			   + "</div>"
 			   + content
 			   + "</body>\r\n"
