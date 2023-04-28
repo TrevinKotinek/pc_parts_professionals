@@ -15,10 +15,11 @@
 
 <!-- Navigation Links -->
 <div class="topnav">
-	<a href="pc_parts_Login.html">Log Out</a>
+	<a href="pc_parts_Login.html">Home</a>
 	<a href="pc_parts_Accounts.html">Accounts</a>
 	<a href="pc_parts_Listings.html">Listings</a>
 	<a href="pc_parts_Forum.html">Forum</a>
+	<a href="pc_parts_CreateAccount.html" class="split">Create Account</a>
 	</div>
 
 <!-- Utility Links -->
@@ -27,23 +28,6 @@
     </form>
     
     <br><br>
-    <h3>Edit Account</h3>
-    <form action="EditAccount">
-    <input type="radio" id="username" name="field" value="username">
-    <label for="username">Username</label><br>
-    <input type="radio" id="password" name="field" value="password">
-    <label for="password">Password</label><br>
-    <input type="radio" id="email" name="field" value="email">
-    <label for="email">Email</label><br>
-    <input type="radio" id="phone" name="field" value="phone">
-    <label for="phone">Phone Number</label><br>
-    <input type="text" id="currentval" name="currentval" placeholder="Current value"><br>
-    <input type="text" id="newval" name="newval" placeholder="New Value">
-    <button type="submit">Confirm Changes</button>
-    </form>
-    
-    <br><br>
-    <h3>Delete Account</h3>
     <form action="DeleteAccount">
     <input type="text" id="deleteVerification" name="deleteVerification" placeholder="Type 'DELETE' here to delete account"><br>
     <button type="submit">Delete Account</button>

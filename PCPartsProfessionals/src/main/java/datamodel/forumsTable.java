@@ -22,29 +22,34 @@ public class forumsTable {
 	@Column(name = "TITLE")
 	private String title;
 
-	@Column(name = "TEXT")
-	private String text;
+	@Column(name = "BODY")
+	private String body;
 
 	@Column(name = "DATE")
 	private String date;
+	
+	@Column(name = "PARENT")
+	private String parent;
 
 	public forumsTable() {
 
 	}
 
-	public forumsTable(Integer id, String username, String title, String text, String date) {
+	public forumsTable(Integer id, String username, String title, String body, String date, String parent) {
 		this.id = id;
 		this.username = username;
 		this.title = title;
-		this.text = text;
+		this.body = body;
 		this.date = date;
+		this.parent = parent;
 	}
 
-	public forumsTable(String username, String title, String text, String date) {
+	public forumsTable(String username, String title, String body, String date, String parent) {
 		this.username = username;
 		this.title = title;
-		this.text = text;
+		this.body = body;
 		this.date = date;
+		this.parent = parent;
 	}
 
 	public Integer getId() {
@@ -71,12 +76,12 @@ public class forumsTable {
 		this.title = title;
 	}
 
-	public String getText() {
-		return text;
+	public String getBody() {
+		return body;
 	}
 
-	public void setText(String text) {
-		this.text = text;
+	public void setText(String body) {
+		this.body = body;
 	}
 
 	public String getDate() {
@@ -86,10 +91,14 @@ public class forumsTable {
 	public void setDate(String date) {
 		this.date = date;
 	}
+	
+	public void setParent(String parent) {
+		this.parent = parent;
+	}
 
 	@Override
 	public String toString() {
-		return "forumsTable [id=" + id + ", username=" + username + ", title=" + title + ", text=" + text + ", date=" + date
+		return "forumsTable [id=" + id + ", username=" + username + ", title=" + title + ", body=" + body + ", date=" + date + ", parent=" + parent
 				+ "]";
 	}
 }

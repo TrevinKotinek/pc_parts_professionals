@@ -52,12 +52,12 @@ public class ForumUtil {
 	}
 
 
-	public static void createforumsTable(String username, String title, String text, String date) {
+	public static void createforumsTable(String username, String title, String body, String date, String parent) {
 		Session session = getSessionFactory().openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.save(new forumsTable(username, title, text, date));
+			session.save(new forumsTable(username, title, body, date, parent));
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)

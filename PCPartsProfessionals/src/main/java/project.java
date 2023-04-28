@@ -50,7 +50,7 @@ public class project extends HttpServlet {
 		for (forumsTable forum : listForums) {
 			out.println("<li>" + forum.getId() + ", " //
 					+ forum.getUsername() + ", " //
-					+ forum.getTitle() + ", " + forum.getText() + ", " + forum.getDate());
+					+ forum.getTitle() + ", " + forum.getBody() + ", " + forum.getDate());
 		}
 		out.println("<br><br>");
 		for (listingsTable list : listTable) {
