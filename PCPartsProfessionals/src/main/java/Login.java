@@ -37,7 +37,7 @@ public class Login extends HttpServlet implements Info {
 	}
 	
 	void loginSucceeded(HttpServletResponse response) throws IOException {
-		response.sendRedirect("pc_parts_Accounts.html");
+		response.sendRedirect(Info.accountsName);
 	}
 	
 	void loginFailed(PrintWriter out) {

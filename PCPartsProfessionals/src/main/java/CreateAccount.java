@@ -23,24 +23,17 @@ public class CreateAccount extends HttpServlet implements Info {
       String email = request.getParameter("email").trim();
       String phonenumber = request.getParameter("phonenumber").trim();
         
-      UserUtil.createUsersTable(username, password, email, phonenumber);
+      String message = UserUtil.createUsersTable(username, password, email, phonenumber);
 
-      response.setContentType("text/html");
-      PrintWriter out = response.getWriter();
-      String title = "Database Result";
-      String docType = "<!doctype html public \"-//w3c//dtd html 4.0 transitional//en\">\n"; //
-      out.println(docType + //
-            "<html>\n" + //
-            "<head><title>" + title + "</title></head>\n" + //
-            "<body bgcolor=\"#f0f0f0\">\n" + //
-            "<h1 align=\"center\">" + title + "</h1>\n");
-      out.println("<ul>");
-      out.println("<li> User: " + username);
-      out.println("<li> Email: " + email);
-      out.println("<li> Phone: " + phonenumber);
-      out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + accountsName + ">Create Account</a> <br>");
-      out.println("</body></html>");
+      if (message.equals("success")) {
+    	  response.sendRedirect(Info.accountsName);
+      }else {
+    	  String title = "Error Creating Account";
+    	  String content = "<h3 align=\"center\">Sorry that " + message + " is already taken, please try another.</h3><br>";
+    	  String output = Info.PrintNotLoggedIn(title, title, content);
+    	  PrintWriter out = response.getWriter();
+    	  out.print(output);
+      }
    }
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

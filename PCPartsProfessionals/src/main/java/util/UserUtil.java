@@ -77,12 +77,25 @@ public class UserUtil {
 		return false;
 	}
 
-	public static void createUsersTable(String username, String password, String email, String phone) {
+	public static String createUsersTable(String username, String password, String email, String phone) {
 		Session session = getSessionFactory().openSession();
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			session.save(new usersTable(username, password, email, phone));
+			List<?> restaurants = session.createQuery("FROM usersTable").list();
+			for (Iterator<?> iterator = restaurants.iterator(); iterator.hasNext();) {
+				usersTable user = (usersTable) iterator.next();
+				if (user.getUsername().equals(username)) {
+					return "username";
+				}else if(user.getEmail().equals(email)) {
+					return "email";
+				}else if(user.getPhone().equals(phone)) {
+					return "phone number";
+				}
+			}
+			usersTable newUser = new usersTable(username, password, email, phone);
+			session.save(newUser);
+			currentUser = newUser;
 			tx.commit();
 		} catch (HibernateException e) {
 			if (tx != null)
@@ -91,6 +104,7 @@ public class UserUtil {
 		} finally {
 			session.close();
 		}
+		return "success";
 	}
 
 	public static boolean deleteUsersTable(int id) {
@@ -137,24 +151,108 @@ public class UserUtil {
 		}
 		return null;
 	}
-	public static boolean deleteRestaurant(int id) {
+	
+	public static boolean updateUsername(String newVal) {
 		Session session = getSessionFactory().openSession();
 		Transaction tx = null;
-		usersTable userToDelete = UserUtil.get(id);
-		if (userToDelete != null) {
-			try {
-				tx = session.beginTransaction();
-				session.delete(userToDelete);
-				tx.commit();
-			} catch (HibernateException e) {
-				if (tx != null)
-					tx.rollback();
-				e.printStackTrace();
-			} finally {
-				session.close();
+		String query = "UPDATE usersTable SET MYUSER = '"+ newVal + "' WHERE MYUSER = '" + currentUser.getUsername()+ "'";
+
+		try {
+			tx = session.beginTransaction();
+			List<?> Users = session.createQuery("FROM usersTable").list();
+			for (Iterator<?> iterator = Users.iterator(); iterator.hasNext();) {
+				usersTable user = (usersTable) iterator.next();
+				if(user.getUsername().equals(newVal)) {
+					return false;
+				}
 			}
-			return true;
+			session.createSQLQuery(query).executeUpdate();
+			currentUser.setUsername(newVal);
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
 		}
-		return false;
+		return true;
+	}
+	
+	public static boolean updatePassword(String newVal) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+
+		String query = "UPDATE usersTable SET PASSWORD = '"+ newVal + "' WHERE PASSWORD = '" + currentUser.getPassword()+ "' AND MYUSER = '" + currentUser.getUsername() + "'";
+
+		try {
+			tx = session.beginTransaction();
+			session.createSQLQuery(query).executeUpdate();
+			currentUser.setPassword(newVal);
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return true;
+	}
+
+	public static boolean updateEmail(String newVal) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+
+		String query = "UPDATE usersTable SET EMAIL = '"+ newVal + "' WHERE EMAIL = '" + currentUser.getEmail()+ "'";
+
+		try {
+			tx = session.beginTransaction();
+			List<?> Users = session.createQuery("FROM usersTable").list();
+			for (Iterator<?> iterator = Users.iterator(); iterator.hasNext();) {
+				usersTable user = (usersTable) iterator.next();
+				if(user.getEmail().equals(newVal)) {
+					return false;
+				}
+			}
+			session.createSQLQuery(query).executeUpdate();
+			currentUser.setEmail(newVal);
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return true;
+	}
+
+	public static boolean updatePhone(String newVal) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+
+		String query = "UPDATE usersTable SET PHONE = '"+ newVal + "' WHERE PHONE = '" + currentUser.getPhone()+ "'";
+
+		try {
+			tx = session.beginTransaction();
+			List<?> Users = session.createQuery("FROM usersTable").list();
+			for (Iterator<?> iterator = Users.iterator(); iterator.hasNext();) {
+				usersTable user = (usersTable) iterator.next();
+				if(user.getPhone().equals(newVal)) {
+					return false;
+				}
+			}
+			session.createSQLQuery(query).executeUpdate();
+			currentUser.setPhone(newVal);
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return true;
 	}
 }

@@ -84,7 +84,7 @@ public class EditAccount extends HttpServlet {
 		}
 		
 		if(success) {
-			response.sendRedirect("pc_parts_Accounts.html");
+			response.sendRedirect(Info.accountsName);
 		}else {
 			if(!errorPrinted) {
 				printError(out, "Oops, that value is already being used by another account.  Please try again with a new value");

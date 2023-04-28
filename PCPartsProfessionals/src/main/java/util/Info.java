@@ -22,10 +22,33 @@ public interface Info {
 			   + "<!-- Display Welcome Message -->"
 			   + "<!-- Navigation Links -->\r\n"
 			   + "<div class=\"topnav\">\r\n"
-			   + "<a href=\"pc_parts_Login.html\">Home</a>\r\n"
+			   + "<a href=\"pc_parts_Login.html\">Log Out</a>\r\n"
 			   + "<a href=\"pc_parts_Accounts.html\">Accounts</a>\r\n"
 			   + "<a href=\"pc_parts_Listings.html\">Listings</a>\r\n"
 			   + "<a href=\"pc_parts_Forum.html\">Forum</a>\r\n"
+			   + "</div>"
+			   + content
+			   + "</body>\r\n"
+			   + "</html>";
+	   return HTMLResult;
+   }
+   
+   public static String PrintNotLoggedIn(String title, String header, String content) {
+	   String HTMLResult = "<!DOCTYPE html>"
+	   		+ "<html><head><meta charset=\"UTF-8\"><title>"
+			   + title + "</title>"
+			   + "<!-- Link CSS -->"
+			   + "<link rel=\"stylesheet\" type=\"text/css\" href=\"pc_parts_Style.css\"/>"
+			   + "</head>"
+			   + "<body>"
+			   + "<header>\r\n"
+			   + "	<h1>" + header + "</h1>"
+			   + "\r\n"
+			   + "</header>"
+			   + "<!-- Display Welcome Message -->"
+			   + "<!-- Navigation Links -->\r\n"
+			   + "<div class=\"topnav\">\r\n"
+			   + "<a href=\"pc_parts_Login.html\">Log In</a>\r\n"
 			   + "<a href=\"pc_parts_CreateAccount.html\" class=\"split\">Create Account</a>\r\n"
 			   + "</div>"
 			   + content
