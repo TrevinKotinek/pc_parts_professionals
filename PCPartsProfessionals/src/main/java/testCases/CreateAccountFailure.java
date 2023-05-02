@@ -20,7 +20,7 @@ public class CreateAccountFailure {
   JavascriptExecutor js;
   @Before
   public void setUp() throws Exception {
-	System.setProperty("webdriver.chrome.driver", "/PCPartsProfessionals/src/main/webapp/WEB-INF/lib/win/chromedriver_win32/chromedriver.exe");
+	System.setProperty("webdriver.chrome.driver", "C:\\Users\\lazym\\Downloads\\pc_parts_professionals-main test\\pc_parts_professionals-main\\PCPartsProfessionals\\src\\main\\webapp\\WEB-INF\\lib\\win\\chromedriver_win32\\chromedriver.exe");
     driver = new ChromeDriver();
     baseUrl = "https://www.google.com/";
     driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(60));
