@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Create Listing Page</title>
+  <!-- Link CSS -->
+  <link rel="stylesheet" type="text/css" href="pc_parts_Style.css" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Corben:bold" />
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nobile" />
+</head>
+
+<body>
+
+  <!-- Display Welcome Message -->
+  <header>
+    <h1>Create Your Listing</h1>
+  </header>
+
+  <!-- Navigation Links -->
+  <div class="topnav">
+    <a href="pc_parts_Login.html">Log Out</a>
+    <a href="pc_parts_Accounts.html">Accounts</a>
+    <a href="pc_parts_Listings.html">Listings</a>
+    <a href="pc_parts_Forums.html">Forum</a>
+  </div>
+
+  <!-- Create Listing Form -->
+  <div align="center">
+    <form action="MyCreateListing">
+      <h1>Create Listing</h1>
+      <p>Please fill in this form to create a listing.</p>
+      <label for="Model"></label>
+      <input type="text" id="model" name="model" placeholder="Enter Model"><br>
+
+      <label for="Price"></label>
+      <input type="text" id="price" name="price" placeholder="Enter Price"><br>
+
+      <label for="City"></label>
+      <input type="text" id="city" name="city" placeholder="Enter City"><br>
+      <div align="center">
+        <label for="Part Type">Part Type:</label>
+        <select id="partType" name="partType">
+          <option value="CPU">CPU</option>
+          <option value="GPU">GPU</option>
+          <option value="Motherboard">Motherboard</option>
+          <option value="Storage">Storage</option>
+          <option value="RAM">RAM</option>
+        </select>
+
+        <label for="Brand">Brand:</label>
+        <select id="brand" name="brand">
+          <option value="AMD">AMD</option>
+          <option value="Intel">Intel</option>
+        </select>
+
+        <label for="Condition">Condition:</label>
+        <select id="condition" name="condition">
+          <option value="New">New</option>
+          <option value="VeryGood">Very Good</option>
+          <option value="Good">Good</option>
+          <option value="Fair">Fair</option>
+          <option value="Poor">Poor</option>
+          <option value="VeryPoor">Very Poor</option>
+        </select><br>
+      </div>
+
+      <button type="submit">Create your Listing</button>
+    </form>
+  </div>
+
+</body>
+
+</html>
