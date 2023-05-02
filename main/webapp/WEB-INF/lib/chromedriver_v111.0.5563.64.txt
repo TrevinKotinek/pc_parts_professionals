@@ -1,2 +1,0 @@
-chromedriver_v111.0.5563.64
-https://chromedriver.storage.googleapis.com/index.html?path=111.0.5563.64/
