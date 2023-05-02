@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+/* Page Coloring */
+body {
+	background-color: #659DBD;
+}
+
+/* Fonts */
+h1,
+h2,
+h3 {
+	font-family: 'Corben', Georgia, Times, serif;
+}
+
+p,
+div,
+li,
+ul,
+li a,
+label,
+option {
+	font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+
+/* Navigation and lists styles */
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 800px;
+	overflow: hidden;
+	background-color: #f1f1f1;
+}
+
+li {
+	float: left;
+	border-right: 1px solid #fff;
+}
+
+li a {
+	display: block;
+	color: #000;
+	padding: 10px 20px;
+	text-decoration: none;
+}
+
+li a:hover {
+	background-color: #555;
+	color: #000;
+}
+
+/* Form Style */
+form {
+	border: 3px solid #daad86;
+	padding: 10px
+}
+
+/* Style for split navigation bars*/
+.topnav {
+	background-color: #daad86;
+	overflow: hidden;
+}
+
+.topnav a {
+	float: left;
+	color: #000;
+	text-align: center;
+	padding: 10px 20px;
+	text-decoration: none;
+}
+
+.topnav a.split {
+	float: right;
+	background-color: #daad86;
+	color: #000;
+}
+
+.topnav a:hover {
+	background-color: #fbeec1;
+	color: #000;
+}
+
+/* Text input fields */
+input[type=text],
+input[type=password] {
+	width: 100%;
+	padding: 10px 20px;
+	margin: 8px 0;
+	display: inline-block;
+	box-sizing: border-box;
+	border: 1px solid #8d8741;
+	box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1)
+}
+
+/* Buttons */
+button,
+input[type=submit] {
+	background-color: #8d8741;
+	color: #000;
+	padding: 10px 20px;
+	margin: 8px 0;
+	border: none;
+	cursor: pointer;
+	width: 100%;
+	font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+
+button:hover,
+input[type=submit]:hover {
+	background-color: #fbeec1;
+}
+
+/* Containers */
+.container {
+	padding: 20px;
+}
