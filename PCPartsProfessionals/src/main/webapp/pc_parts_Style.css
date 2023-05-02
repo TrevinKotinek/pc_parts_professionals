@@ -1,41 +1,63 @@
 @charset "UTF-8";
 
-/* Navigation and lists styles */
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 800px;
-  overflow: hidden;
-  background-color: #f1f1f1;
+/* Page Coloring */
+body {
+	background-color: #659DBD;
 }
 
- li {
- float: left;
- border-right: 1px solid #fff;
- }
- 
- li a {
- display: block;
- color: #000;
- padding: 10px 20px;
- text-decoration: none;
+/* Fonts */
+h1,
+h2,
+h3 {
+	font-family: 'Corben', Georgia, Times, serif;
+}
+
+p,
+div,
+li,
+ul,
+li a,
+label,
+option {
+	font-family: 'Nobile', Helvetica, Arial, sans-serif;
+}
+
+/* Navigation and lists styles */
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 800px;
+	overflow: hidden;
+	background-color: #f1f1f1;
+}
+
+li {
+	float: left;
+	border-right: 1px solid #fff;
+}
+
+li a {
+	display: block;
+	color: #000;
+	padding: 10px 20px;
+	text-decoration: none;
 }
 
 li a:hover {
-background-color: #555;
-color: #000;
+	background-color: #555;
+	color: #000;
 }
 
 /* Form Style */
 form {
-	border: 3px solid #f1f1f1;
+	border: 3px solid #daad86;
+	padding: 10px
 }
 
 /* Style for split navigation bars*/
 .topnav {
-	background-color: #f1f1f1;
+	background-color: #daad86;
 	overflow: hidden;
 }
 
@@ -45,44 +67,47 @@ form {
 	text-align: center;
 	padding: 10px 20px;
 	text-decoration: none;
-	border-right: 1px solid #fff;
 }
 
 .topnav a.split {
 	float: right;
-	background-color: #f1f1f1;
+	background-color: #daad86;
 	color: #000;
 }
 
 .topnav a:hover {
-	background-color: #555;
+	background-color: #fbeec1;
 	color: #000;
 }
 
 /* Text input fields */
-input[type=text], input[type=password] {
-	width: 90%;
+input[type=text],
+input[type=password] {
+	width: 100%;
 	padding: 10px 20px;
 	margin: 8px 0;
 	display: inline-block;
-	border: 1px solid #ccc;
 	box-sizing: border-box;
-	box-shadow: 0 0 10px 4px rgba(0,0,0,0.06)
+	border: 1px solid #8d8741;
+	box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1)
 }
 
 /* Buttons */
-button {
-	background-color: #f1f1f1;
+button,
+input[type=submit] {
+	background-color: #8d8741;
 	color: #000;
 	padding: 10px 20px;
-	margin: 8px;
+	margin: 8px 0;
 	border: none;
 	cursor: pointer;
 	width: 100%;
+	font-family: 'Nobile', Helvetica, Arial, sans-serif;
 }
 
-button:hover {
-	color: #00f;
+button:hover,
+input[type=submit]:hover {
+	background-color: #fbeec1;
 }
 
 /* Containers */
