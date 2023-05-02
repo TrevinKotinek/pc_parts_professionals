@@ -12,6 +12,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 import datamodel.forumsTable;
+import datamodel.usersTable;
 
 public class ForumUtil {
 	static SessionFactory sessionFactory = null;
@@ -111,5 +112,23 @@ public class ForumUtil {
 			session.close();
 		}
 		return null;
+	}
+	
+	public static void deletedUsersForumsUpdate(String username) {
+		Session session = getSessionFactory().openSession();
+		Transaction tx = null;
+		String query = "UPDATE forumsTable SET MYUSER = 'Deleted Account' WHERE MYUSER = '" + username + "'";
+		
+		try {
+			tx = session.beginTransaction();
+			session.createSQLQuery(query).executeUpdate();
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx != null)
+				tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
 	}
 }

@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 
 import util.Info;
 import util.ListingUtil;
+import util.UserUtil;
 
 @WebServlet("/MyCreateListing")
 public class MyCreateListing extends HttpServlet implements Info {
@@ -30,13 +31,13 @@ public class MyCreateListing extends HttpServlet implements Info {
       String type = request.getParameter("partType").trim();
       String brand = request.getParameter("brand").trim();
       String condition = request.getParameter("condition").trim();
+      String state = request.getParameter("state").trim();
       
       String dateString = java.time.LocalDateTime.now().toString();
       
-      String user = "Work In Progress";		//Work In Progress
-      String email = "wip@test.com";		//Work In Progress
-      String phone = "402-555-5555";		//Work In Progress
-      String state = "Work In Progress";	//Work In Progress
+      String user = UserUtil.currentUser.getUsername();
+      String email = UserUtil.currentUser.getEmail();
+      String phone = UserUtil.currentUser.getPhone();
         
       
       ListingUtil.createlistingsTable(type, brand, model, condition, price, dateString, user,

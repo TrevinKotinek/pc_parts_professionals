@@ -123,6 +123,8 @@ public class UserUtil {
 			} finally {
 				session.close();
 			}
+			ListingUtil.deleteUsersPostings(user.getUsername());
+			ForumUtil.deletedUsersForumsUpdate(user.getUsername());
 			return true;
 		}
 		return false;

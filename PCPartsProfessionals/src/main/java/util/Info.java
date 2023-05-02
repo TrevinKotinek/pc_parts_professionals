@@ -6,6 +6,7 @@ public interface Info {
    public String listingsName = "pc_parts_Listings.html";
    public String accountsName = "pc_parts_Accounts.html";
    public String createListingsName = "pc_parts_CreateListing.html";
+   public String forumsName = "pc_parts_Forums.html";
    
    public static String PrettyPrint(String title, String header, String content) {
 	   String HTMLResult = "<!DOCTYPE html>"
@@ -25,7 +26,7 @@ public interface Info {
 			   + "<a href=\"pc_parts_Login.html\">Log Out</a>\r\n"
 			   + "<a href=\"pc_parts_Accounts.html\">Accounts</a>\r\n"
 			   + "<a href=\"pc_parts_Listings.html\">Listings</a>\r\n"
-			   + "<a href=\"pc_parts_Forum.html\">Forum</a>\r\n"
+			   + "<a href=\"pc_parts_Forums.html\">Forum</a>\r\n"
 			   + "</div>"
 			   + content
 			   + "</body>\r\n"

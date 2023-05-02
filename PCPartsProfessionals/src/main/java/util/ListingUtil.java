@@ -112,4 +112,15 @@ public class ListingUtil {
 		}
 		return null;
 	}
+	
+	public static void deleteUsersPostings(String username) {
+		List<listingsTable> allListings = listListings();
+		for(listingsTable thisListing : allListings) {
+			if(thisListing.getUser().equals(username)) {
+				deletelistingsTable(thisListing.getId());
+			}
+		}
+		
+		
+	}
 }
