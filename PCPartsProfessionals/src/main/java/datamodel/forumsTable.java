@@ -92,6 +92,10 @@ public class forumsTable {
 		this.date = date;
 	}
 	
+	public String getParent() {
+		return parent;
+	}
+	
 	public void setParent(String parent) {
 		this.parent = parent;
 	}
