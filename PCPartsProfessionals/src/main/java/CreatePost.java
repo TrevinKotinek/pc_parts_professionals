@@ -6,11 +6,15 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import datamodel.usersTable;
+
 import java.time.LocalDateTime;  
 import java.time.format.DateTimeFormatter;
 
 import util.ForumUtil;
 import util.Info;
+import util.UserUtil;
 
 @WebServlet("/CreatePost")
 public class CreatePost extends HttpServlet implements Info {
@@ -24,11 +28,12 @@ public class CreatePost extends HttpServlet implements Info {
    
    
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      String user = request.getParameter("user").trim();
+	  usersTable userInfo = UserUtil.currentUser;
+	  String user = userInfo.getUsername();
       String titlePost = request.getParameter("title").trim();
-      String body = request.getParameter("body").trim();
+      String body = request.getParameter("Body").trim();
       String dateString = java.time.LocalDateTime.now().toString();
-      String parent = request.getParameter("parent").trim();
+      String parent = "0";
       
         
       
@@ -50,7 +55,7 @@ public class CreatePost extends HttpServlet implements Info {
       out.println("<li> Date: " + dateString);
       out.println("<li> parent: " + parent);
       out.println("</ul>");
-      out.println("<a href=/" + projectName + "/" + createListingsName + ">Create Forum Post</a> <br>");
+      out.println("<a href=/" + projectName + "/" + forumsName + ">Return to Forums</a> <br>");
       out.println("</body></html>");
    }
 
