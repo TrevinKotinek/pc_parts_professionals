@@ -26,17 +26,24 @@ public class displayForums extends HttpServlet {
 		displayData(response.getWriter());
 	}
 	
-	void displayData(PrintWriter out, String param, String text) {
+	void displayData(PrintWriter out) {
 		String title = "Listings";
 		String header = "Results";
 		String content = "<ul>";
 		
 		List<forumsTable> listForums = util.ForumUtil.listForums();
 			for (forumsTable post : listForums){
+				//This is where the condition to check if the post is a reply should go.
 				content += ("<li>" + post.getId() + ", "
 						+ post.getUsername() + ", "
 						+ post.getTitle() + ", "
-						+ post.getDate()) + "</li>";
+						+ post.getDate()
+					/* this code block appends a View Thread button, currently the viewThread servlet is not implemented.
+        					+ "<form action=\"viewThread\" method=\"POST\">"
+        					+ "<input type=\"hidden\" id=\"parentId\" value=\"" + post.getId() + "\">"
+        					+ "<input type=\"submit\" value=\"View Thread\"></form>"
+					*/
+						+ "</li>");
 }
 content += "<ul>";
 		out.println(util.Info.PrettyPrint(title, header, content));
