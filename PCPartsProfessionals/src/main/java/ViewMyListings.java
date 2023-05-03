@@ -51,8 +51,8 @@ content += ("<li>" + listing.getId() + ", "
 
     	  content += "</ul>";
     	  
-    	  out.println(util.Info.PrettyPrint(title, header, content));
       }
+    	  out.println(util.Info.PrettyPrint(title, header, content));
    }
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
