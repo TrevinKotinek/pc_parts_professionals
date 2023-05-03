@@ -45,7 +45,7 @@ public class displayForums extends HttpServlet {
 					*/
 						+ "</li>");
 }
-content += "<ul>";
+content += "</ul>";
 		out.println(util.Info.PrettyPrint(title, header, content));
 	}
 	
