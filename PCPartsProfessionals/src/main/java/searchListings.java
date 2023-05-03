@@ -123,10 +123,10 @@ public class searchListings extends HttpServlet implements Info {
     				  + listing.getCity() + ", "
     				  + listing.getState());
     	  }
-    	  content += "</ul>";
+      }
+         content += "</ul>";
     	  
     	  out.println(util.Info.PrettyPrint(title, header, content));
-      }
    }
 
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
