@@ -49,9 +49,10 @@ content += ("<li>" + listing.getId() + ", "
     				  + listing.getCity() + ", "
     				  + listing.getState());
 
-    	  content += "</ul>";
+    	  content += "</li>";
     	  
       }
+      content += "</ul>";
     	  out.println(util.Info.PrettyPrint(title, header, content));
    }
 
