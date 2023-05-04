@@ -38,11 +38,10 @@ public class displayForums extends HttpServlet {
 						+ post.getUsername() + ", "
 						+ post.getTitle() + ", "
 						+ post.getDate()
-					/* this code block appends a View Thread button, currently the viewThread servlet is not implemented.
         					+ "<form action=\"viewThread\" method=\"POST\">"
-        					+ "<input type=\"hidden\" id=\"parentId\" value=\"" + post.getId() + "\">"
+        					+ "<input type=\"hidden\" id=\"parentId\" value=\"" + post.getId() + "\" name=\"parentId\">"
         					+ "<input type=\"submit\" value=\"View Thread\"></form>"
-					*/
+
 						+ "</li>");
 }
 content += "</ul>";
