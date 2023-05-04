@@ -25,20 +25,24 @@ public class viewThread extends HttpServlet {
         displayData(response.getWriter(), parentId);
     }
     
-    void displayData(PrintWriter out, Integer parentId){
+    void displayData(PrintWriter out, String parentId){
         String title = "Forum";
         String header = "Post";
         String content = "<ul>";
 
         List<forumsTable> listForums = util.ForumUtil.listForums();
-            for (forumsTable post : listForums){
-                if (post.getId() == parentId || ((Integer) post.getParent()) == parentId){
-                    content += ("<li>" + post.getTitle() + ", " + post.getUser()
-                    + "<br>" + post.getBody() + "<br><br></li>");
-                }
+        for (forumsTable post : listForums){
+            if (post.getIdString().equals(parentId) || (post.getParent()).equals(parentId)){
+                content += "<li>";
+                content += "<div style='margin-left: 20px;'>"; 
+                content += post.getTitle() + ", " + post.getUsername() + "<br>";
+                content += post.getBody().replaceAll("\n", "<br>") + "<br><br>";
+                content += "</div>";
+                content += "</li>";
             }
-            content += "</ul>";
-            out.println(util.Info.PrettyPrint(title, header, content));
+        }
+        content += "</ul>";
+        out.println(util.Info.PrettyPrint(title, header, content));
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
