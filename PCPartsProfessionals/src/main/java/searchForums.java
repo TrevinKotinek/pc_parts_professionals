@@ -30,7 +30,7 @@ public class searchForums extends HttpServlet {
 	}
 	
 	void displayData(PrintWriter out, String param, String text) {
-		String title = "Listings";
+		String title = "Forums";
 		String header = "Results";
 		String content = "<ul>";
 		
