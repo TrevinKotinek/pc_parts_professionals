@@ -32,7 +32,7 @@ public class viewThread extends HttpServlet {
 
         List<forumsTable> listForums = util.ForumUtil.listForums();
             for (forumsTable post : listForums){
-                if (post.getId() == parentId || post.getParent() == parentId){
+                if (post.getId() == parentId || ((Integer) post.getParent()) == parentId){
                     content += ("<li>" + post.getTitle() + ", " + post.getUser()
                     + "<br>" + post.getBody() + "<br><br></li>");
                 }
