@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Listings Page</title>
+	<!-- Link CSS -->
+	<link rel="stylesheet" type="text/css" href="pc_parts_Style.css" />
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Corben:bold" />
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nobile" />
+</head>
+
+<!--  Begin Body -->
+
+<body>
+
+	<!-- Display Welcome Message -->
+	<header>
+		<h1>Listings</h1>
+	</header>
+
+	<!-- Navigation Links -->
+	<!-- Custom Nav class for a split navbar, utility links are right aligned, normal navigation is left aligned -->
+	<div class="topnav">
+		<a href="pc_parts_Login.html">Log Out</a>
+		<a href="pc_parts_Accounts.html">Accounts</a>
+		<a href="pc_parts_Listings.html">Listings</a>
+		<a href="pc_parts_Forums.html">Forum</a>
+		<a href="pc_parts_CreateListing.html" class="split">Create Listing</a>
+	</div>
+
+	<!-- Search Bar -->
+	<!-- Forms action is a placeholder name still -->
+	<form action="searchListings">
+
+		<label for="param">Search by...</label>
+		<select name="searchParam" id="param" required>
+			<option value="model">Model</option>
+			<option value="price">Price</option>
+			<option value="city">City</option>
+			<option value="partType">Part Type</option>
+			<option value="brand">Brand</option>
+			<option value="condition">Condition</option>
+		</select>
+
+		<input type="text" placeholder="Insert Search Term Here" id="search" required name="search">
+		<input type="submit" value="Submit">
+	</form><br>
+
+	<form action="ViewMyListings">
+		<button type="submit">View My Listings</button>
+	</form>
+
+</body>
+
+</html>
